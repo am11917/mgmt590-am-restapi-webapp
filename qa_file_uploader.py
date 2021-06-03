@@ -34,4 +34,4 @@ def write(state):
                 
             output = {'question':questions,'context':contexts,'answer':answer}
             output_pd = pd.DataFrame(output)
-            st.dataframe(output_pd)
+            st.table(output_pd)
