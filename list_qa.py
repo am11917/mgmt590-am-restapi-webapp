@@ -35,7 +35,7 @@ def write(state):
             response = requests.request("GET", url_search, headers=headers, data=payload)
             data = json.loads(response.text)
             output_pd = pd.DataFrame(data)
-            st.dataframe(output_pd)
+            st.table(output_pd)
         else:
             url_search = url+"?model="+model+"&start="+start_unix_ts+"&end="+end_unix_ts
             print(url_search)
