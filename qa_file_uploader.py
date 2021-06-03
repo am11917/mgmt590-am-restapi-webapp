@@ -9,15 +9,26 @@ def write(state):
     answer = []
     questions = []
     contexts = []
+    
     url = format(os.environ.get('API_URL'))
-    url = url+'answer'
+    url = url+'models'
     qa_file = st.file_uploader("Upload CSV",type=['csv'])
+    headers={}
+    payload={}
+    response = requests.request("GET", url, headers=headers, data=payload)
+    data = json.loads(response.text)
+    output_pd = pd.DataFrame(data)
+    option = st.selectbox("Select Model", options = output_pd['name'])    
+    
     if st.button("Process"):
         if qa_file is not None:
+            url = format(os.environ.get('API_URL'))
+            url = url+'answer'
+            model_cmd="?model="+option
+            url=url+model_cmd
             file_details = {"Filename":qa_file.name,"FileType":qa_file.type,"FileSize":qa_file.size}
             st.write(file_details)
             df = pd.read_csv(qa_file)
-            st.dataframe(df)
             for idx, row in df.iterrows():
                 context = row['context']
                 question = row['question']
@@ -34,4 +45,4 @@ def write(state):
                 
             output = {'question':questions,'context':contexts,'answer':answer}
             output_pd = pd.DataFrame(output)
-            st.dataframe(output_pd)
+            st.table(output_pd)

@@ -9,4 +9,6 @@ def write(state):
     headers={}
     payload={}
     response = requests.request("GET", url, headers=headers, data=payload)
-    st.json(response.text)
+    data = json.loads(response.text)
+    output_pd = pd.DataFrame(data)
+    st.table(output_pd)

@@ -44,4 +44,4 @@ def write(state):
             response = requests.request("GET", url_search, headers=headers, data=payload)
             data = json.loads(response.text)
             output_pd = pd.DataFrame(data)
-            st.dataframe(output_pd)
+            st.table(output_pd)
