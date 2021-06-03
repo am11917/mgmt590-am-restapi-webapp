@@ -32,11 +32,15 @@ def write(state):
             headers={}
             payload={}
             response = requests.request("GET", url_search, headers=headers, data=payload)
-            st.json(response.text)
+            data = json.loads(response.text)
+            output_pd = pd.DataFrame(data)
+            st.dataframe(output_pd)
         else:
             url_search = url+"?model="+model+"&start="+start_unix_ts+"&end="+end_unix_ts
             print(url_search)
             headers={}
             payload={}
             response = requests.request("GET", url_search, headers=headers, data=payload)
-            st.json(response.text)
+            data = json.loads(response.text)
+            output_pd = pd.DataFrame(data)
+            st.dataframe(output_pd)
