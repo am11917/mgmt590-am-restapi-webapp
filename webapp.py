@@ -1,24 +1,46 @@
 import requests
 import json
 import streamlit as st
+import hashlib
+import defSessionState as ss
 
-url = "https://mgmt590-rest-api-kprv24rveq-uc.a.run.app/answer"
+import answer_qa
+import model_add
+import home
+import list_qa
+import list_models
 
-st.title('Amazing Question Answering Thing!')
+st.set_page_config(
+    # Can be "centered" or "wide". In the future also "dashboard", etc.
+    layout="centered",
+    initial_sidebar_state="expanded",  # Can be "auto", "expanded", "collapsed"
+    # String or None. Strings get appended with "• Streamlit".
+    page_title="AM Transformers - Question Answering",
+    page_icon=None,  # String, anything supported by st.image, or None.
+)
 
-# Inputs
-question = st.text_input('Question')
-context = st.text_area('Context')
+PAGES = {
+    "Home": home,
+    "List Models": list_models,
+    "Add New Models": model_add,
+    "Answer your Question": answer_qa,
+    "List Recently Answered Questions": list_qa,
+}
 
-# Execute question answering on button press
-if st.button('Answer Question'):
+st.title("MGMT 590 - Transformers Question Answering Models")
 
-    payload = json.dumps({
-        "question": question,
-        "context": context
-        })
-    headers = {'Content-Type': 'application/json'}
-    response = requests.request("POST", url, headers=headers, data=payload)
-    answer = response.json()['answer']
+def main():
+    state = ss._get_state()
+    st.sidebar.title("Navigation")
+    selection = st.sidebar.radio("Go to", list(PAGES.keys()))
+    
+    page = PAGES[selection].write(state)
 
-    st.success(answer)
+    st.sidebar.title("About")
+    st.sidebar.info(
+            """
+            Part of this app is maintained by Ayush Maheshwari.
+            """)
+    state.sync()
+if __name__ == "__main__":
+    main()
