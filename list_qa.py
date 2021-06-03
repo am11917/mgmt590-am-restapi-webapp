@@ -21,7 +21,8 @@ def write(state):
     print("Start: ", start_unix_ts)
     print("End: ", end_unix_ts)
     
-    url = "https://mgmt590-am-rest-api-wbv4eowlaa-uc.a.run.app/answer"
+    url = format(os.environ.get('API_URL'))
+    url = url+'answer'
     
     if st.button('Retrieve Question and Answers'):
         if (model == ""):
