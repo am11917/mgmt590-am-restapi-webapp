@@ -7,7 +7,8 @@ def write(state):
     question =st.text_input('Question')
     context =st.text_input('Context')
     
-    url = "https://mgmt590-am-rest-api-wbv4eowlaa-uc.a.run.app/answer"
+    url = format(os.environ.get('API_URL'))
+    url = url+'answer'
 
     if st.button('Answer button'):
         if (question != "" and context !=""):
