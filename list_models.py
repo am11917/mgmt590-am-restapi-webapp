@@ -2,6 +2,7 @@ import requests
 import json
 import streamlit as st
 import os
+import pandas as pd
 
 def write(state): 
     url = format(os.environ.get('API_URL'))
