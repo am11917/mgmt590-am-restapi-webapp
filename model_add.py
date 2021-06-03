@@ -5,7 +5,8 @@ import streamlit as st
 def write(state):
 
 
-    url = "https://mgmt590-am-rest-api-wbv4eowlaa-uc.a.run.app/models"
+    url = format(os.environ.get('API_URL'))
+    url = url+'models'
     
     with try_expander('Add/Delete Models', False):
         if st.checkbox('Add Transformers QA Model', value=False):
