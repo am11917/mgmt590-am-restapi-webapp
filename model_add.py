@@ -32,7 +32,7 @@ def write(state):
                     st.error('Always enter the Model Name, Model and Tokenizer Value')
     
         if st.checkbox('Delete Transformers QA Model', value=False):
-            model_name_del = st.text_input('Model Name')
+            model_name_del = st.text_input('Model Name For Deleting')
             if st.button('Delete Model'):
                 if (model_name_del != ""):
                     delete_cmd = "?model="
