@@ -9,6 +9,7 @@ import model_add
 import home
 import list_qa
 import list_models
+import qa_file_uploader
 
 st.set_page_config(
     # Can be "centered" or "wide". In the future also "dashboard", etc.
@@ -25,6 +26,7 @@ PAGES = {
     "Add New Models": model_add,
     "Answer your Question": answer_qa,
     "List Recently Answered Questions": list_qa,
+    "Upload a File with Question & Context":qa_file_uploader
 }
 
 st.title("MGMT 590 - Transformers Question Answering Models")
