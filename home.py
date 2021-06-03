@@ -5,7 +5,7 @@ import streamlit as st
 def write(state):
     st.markdown('')
     st.markdown('')
-    st.title('Welcome to AM''s Transformers QA Web App')
+    st.title('Welcome to AM''s Transformers QA Web Application')
     st.markdown('')
     st.subheader("Please use the sidebar to navigate through the different options in the application")
     st.markdown('''
