@@ -24,7 +24,9 @@ def write(state):
                     })  
                     headers={'Content-Type':'application/json'}
                     response = requests.request("PUT", url, headers=headers, data=payload)              
-                    st.json(response.text)
+                    data = json.loads(response.text)
+                    output_pd = pd.DataFrame(data)
+                    st.table(output_pd)
                 else:
                     st.error('Always enter the Model Name, Model and Tokenizer Value')
     
@@ -37,7 +39,9 @@ def write(state):
                     payload={}
                     headers = {}
                     response = requests.request("DELETE", url_del, headers=headers, data=payload)
-                    st.json(response.text)
+                    data = json.loads(response.text)
+                    output_pd = pd.DataFrame(data)
+                    st.table(output_pd)
                 else:
                     st.error('Model Name cannot be left empty')
 
