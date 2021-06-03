@@ -1,9 +1,11 @@
 import requests
 import json
 import streamlit as st
+import os
 
 def write(state): 
-    url = "https://mgmt590-am-rest-api-wbv4eowlaa-uc.a.run.app/models"
+    url = format(os.environ.get('API_URL'))
+    url = url+'models'
     headers={}
     payload={}
     response = requests.request("GET", url, headers=headers, data=payload)
