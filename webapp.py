@@ -23,13 +23,13 @@ st.set_page_config(
 PAGES = {
     "Home": home,
     "List Models": list_models,
-    "Add New Models": model_add,
-    "Answer your Question": answer_qa,
+    "Add New or Delete Models": model_add,
+    "Ask a Question": answer_qa,
     "List Recently Answered Questions": list_qa,
     "Upload a File with Question & Context":qa_file_uploader
 }
 
-st.title("MGMT 590 - Transformers Question Answering Models")
+st.title("MGMT 590 - Brown Guy's Oracle")
 
 def main():
     state = ss._get_state()
@@ -41,7 +41,7 @@ def main():
     st.sidebar.title("About")
     st.sidebar.info(
             """
-            Part of this app is maintained by Ayush Maheshwari.
+            Part of this app is maintained by Mr. Ayush Maheshwari.
             """)
     state.sync()
 if __name__ == "__main__":
