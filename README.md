@@ -77,7 +77,10 @@ using the model and listing recently answered questions.
 
 ## Build and Deploy Web App Locally
 There are two ways to deploy the Web App on your local machine:
-<li> <b> Deployment with Streamlit: </b></li>
+</br>
+<b> 1. Deployment with Streamlit: </b>
+</br>
+</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. To deploy the app on your local machine through Streamlit, we just need to run the python file
 
 ``` 
@@ -93,11 +96,12 @@ There are two ways to deploy the Web App on your local machine:
 ```
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. You can access the web app through chrome, edge or any web browser and start sending requests to the REST API through the portal.
 
-<li> <b> Deployment through Docker: </b> </li>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. To deploy the app on your local machine through docker, we need a docker file ,given we already have the application file created, that would be the recipe for docker to build the application
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. In the dockerfile, we will add the required dependency of python:3.7-slim
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. Once the dockerfile is created, we'll execute the deployment of the docker container which would be published and deployed
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. We'll copy the webapp.py in the app folder and the application would run once the docker image was deployed
+<b> 2. Deployment through Docker: </b>
+
+- To deploy the app on your local machine through docker, we need a docker file ,given we already have the application file created, that would be the recipe for docker to build the application
+- In the dockerfile, we will add the required dependency of python:3.7-slim
+- Once the dockerfile is created, we'll execute the deployment of the docker container which would be published and deployed
+- We'll copy the webapp.py in the app folder and the application would run once the docker image was deployed
 
 *Sample Dockerfile*
 ````
