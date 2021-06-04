@@ -57,22 +57,23 @@ There are multiple methods/paths available that provide functionalities to list,
 using the model and listing recently answered questions.
 
 ### Home
-![image](https://user-images.githubusercontent.com/69768815/120727649-14a7f200-c4a9-11eb-84d3-96782994df6d.png)
+![image](https://user-images.githubusercontent.com/69768815/120730695-0dd0ad80-c4b0-11eb-9a9f-6571de900f41.png)
 
 ### List Models
-![image](https://user-images.githubusercontent.com/69768815/120728102-2b027d80-c4aa-11eb-89e2-7a7c546c6b82.png)
+![image](https://user-images.githubusercontent.com/69768815/120730712-14f7bb80-c4b0-11eb-90ce-8b47a9ff2f46.png)
 
 ### Add or Delete Models
-![image](https://user-images.githubusercontent.com/69768815/120728187-5e450c80-c4aa-11eb-8a39-4e0d8c480171.png)
+![image](https://user-images.githubusercontent.com/69768815/120733606-884ffc00-c4b5-11eb-857f-f0dc7fe5b0f0.png)
+![image](https://user-images.githubusercontent.com/69768815/120733651-943bbe00-c4b5-11eb-9b57-9cc1a996e3ce.png)
 
 ### Ask a Question
-![image](https://user-images.githubusercontent.com/69768815/120728569-40c47280-c4ab-11eb-941d-9682314ad775.png)
+![image](https://user-images.githubusercontent.com/69768815/120733793-cbaa6a80-c4b5-11eb-8fa1-04a4afd4ed6a.png)
 
 ### List Recently Answered Questions
-![image](https://user-images.githubusercontent.com/69768815/120728636-5cc81400-c4ab-11eb-9ce8-a96e8e40dbb9.png)
+![image](https://user-images.githubusercontent.com/69768815/120733862-eb419300-c4b5-11eb-9a1f-39d4f95cff9a.png)
 
 ### Upload Question File for Answering
-![image](https://user-images.githubusercontent.com/69768815/120728681-70737a80-c4ab-11eb-8284-bdca1f255dbe.png)
+![image](https://user-images.githubusercontent.com/69768815/120733894-f85e8200-c4b5-11eb-8695-5d21dc621b2d.png)
 
 
 ## Build and Deploy Web App Locally
