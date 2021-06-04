@@ -27,7 +27,7 @@ def write(state):
             model_cmd="?model="+option
             url=url+model_cmd
             file_details = {"Filename":qa_file.name,"FileType":qa_file.type,"FileSize":qa_file.size}
-            st.write(file_details)
+            #st.write(file_details)
             df = pd.read_csv(qa_file)
             for idx, row in df.iterrows():
                 context = row['context']
