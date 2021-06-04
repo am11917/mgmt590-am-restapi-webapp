@@ -4,13 +4,18 @@ import streamlit as st
 import os
 
 def write(state):
-    model = st.text_input('Model')
+ 
+    url = format(os.environ.get('API_URL'))
+    url = url+'models'
+    headers={}
+    payload={}
+    response = requests.request("GET", url, headers=headers, data=payload)
+    data = json.loads(response.text)
+    output_pd = pd.DataFrame(data)
+    model = st.selectbox("Select Model", options = output_pd['name'])
     question =st.text_input('Question')
     context =st.text_input('Context')
     
-    url = format(os.environ.get('API_URL'))
-    url = url+'answer'
-
     if st.button('Answer button'):
         if (question != "" and context !=""):
             if(model == ""):
