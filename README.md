@@ -13,15 +13,19 @@ The Web app has been designed to answer questions, use different transformers mo
   <ol>
     <li>
       <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites-and-installation">Prerequisites & Installation</a></li>
-      </ul>
     </li>
-    <li> <a href ="#available-routes-for-api-requests"> Available Routes for API Requests </a></li>
-    <ul> <li> <a href="#models-path"> Models Path </a></li>
-      <li> <a href="#answers-path"> Answers Path </a></li>
+    <li> <a href ="#architecture-diagram"> Architecture Diagram </a></li>
+    <li><a href="#prerequisites-and-installation">Prerequisites & Installation</a></li>  
+    <li> <a href ="#functionality-of-the-web-app"> Functionality of the Web App </a></li>
+    <ul> 
+      <li> <a href="#home"> Home </a></li>
+      <li> <a href="#list-models"> List Models </a></li>
+      <li> <a href="#add-or-delete-models"> Add or Delete Models </a></li>
+      <li> <a href="#ask-a-question"> Ask a Question </a></li>
+      <li> <a href="#list-recently-answered-questions"> List Recently Answered Questions </a></li>
+       <li> <a href="#upload-question-file-for-answering"> Upload Question File for Answering </a></li>
     </ul>
-    <li><a href=#Build> Build API Locally </a> </li>
+    <li><a href=#build-and-deploy-web-app-locally> Build and Deploy Web App Locally </a> </li>
   </ol>
 </details>
 
@@ -34,7 +38,8 @@ _**API URL - (Publically Available on Cloud)**_
       Base URL: https://mgmt590-am-web-app-wbv4eowlaa-uc.a.run.app
  ```
 
-## Architecture diagram
+## Architecture Diagram
+![image](https://user-images.githubusercontent.com/69768815/120727045-867f3c00-c4a7-11eb-8feb-d2e7020f76a8.png)
 
 
 ### Prerequisites and Installation
@@ -43,228 +48,69 @@ To run this web application, you'll need the following pre-requisites installed 
 | Library      | Version | Installation |
 | ----------- | ----------- | --------- |
 | Python | 3.9.1 or above  | <a href="https://www.python.org/downloads/"> Python </a> |
-| Flask   | 2.0.1        | `pip install flask` |
-| Transformers | 4.6.1 | `pip install transformers` |
-| SQLite | 2.6.0 | `pip install sqlite3` |
+| Streamlit | 0.82.0 | `pip install streamlit`|
 | Docker Engine | NA | <a href="https://docs.docker.com/engine/"> Docker </a>|
-| Tensor Flow | 2.5.0 | `pip install --upgrade tensorflow` |
-| Pytorch | 1.8.1+cpu | `pip install torch` |
 
-## Available Routes for API Requests
-There are multiple methods/paths available that provide multiple functionality to list, add or delete transformers models. Request an answer to the questions
+
+## Functionality of the Web App
+There are multiple methods/paths available that provide functionalities to list, add or delete transformers models. Request an answer to the questions
 using the model and listing recently answered questions.
 
-### Models Path
-We are listing the available methods for all the model based handlers
+### Home
+![image](https://user-images.githubusercontent.com/69768815/120727649-14a7f200-c4a9-11eb-84d3-96782994df6d.png)
 
-| S.No.     |Allowed Methods        | Path | Description | Request Body   |Example API Call   |
-|-----------|-----------|-----------|-----------|-----------|-----------|
-|1.  | GET | /models| List the models available <br> for answering the question | Not Required | 1. Local Machine: http://localhost:port#/models <br><br> 2. Cloud API: Local Machine: https://<api_url>:port#/models | 
+### List Models
+![image](https://user-images.githubusercontent.com/69768815/120728102-2b027d80-c4aa-11eb-89e2-7a7c546c6b82.png)
 
-*Sample Output*
-  ```
-  [
-{
-"name": "distilled-bert",
-"tokenizer": "distilbert-base-uncased-distilled-squad",
-"model": "distilbert-base-uncased-distilled-squad"
-},
-{
-"name": "deepset-roberta",
-"tokenizer": "deepset/roberta-base-squad2",
-"model": "deepset/roberta-base-squad2"
-}
-]
-  ```
-| S.No.     |Allowed Methods        | Path | Description | Request Body   |Example API Call   |
-|-----------|-----------|-----------|-----------|-----------|-----------|
-|2.  | PUT | /models| Add the model using PUT request with parameters passed as part of the body of the request | See Below | 1. Local Machine: http://localhost:port#/models <br><br> 2. Cloud API: Local Machine: https://<api_url>:port#/models | 
+### Add or Delete Models
+![image](https://user-images.githubusercontent.com/69768815/120728187-5e450c80-c4aa-11eb-8a39-4e0d8c480171.png)
 
-*Request Body*
-  ```
-  {
-"name": "bert-tiny",
-"tokenizer": "mrm8488/bert-tiny-5-finetuned-squadv2",
-"model": "mrm8488/bert-tiny-5-finetuned-squadv2"
-  }
-  ```
- *Sample Output*
-  ```
-  [
-{
-"name": "distilled-bert",
-"tokenizer": "distilbert-base-uncased-distilled-squad",
-"model": "distilbert-base-uncased-distilled-squad"
-},
-{
-"name": "deepset-roberta",
-"tokenizer": "deepset/roberta-base-squad2",
-"model": "deepset/roberta-base-squad2"
-},
-{
-"name": "bert-tiny",
-"tokenizer": "mrm8488/bert-tiny-5-finetuned-squadv2",
-"model": "mrm8488/bert-tiny-5-finetuned-squadv2"
-}
-]
-  ```
-| S.No.     |Allowed Methods        | Path | Description | Request Body   |Example API Call   |
-|-----------|-----------|-----------|-----------|-----------|-----------|
-|3.  | DELETE | /models?model=<model_name>| Delete the model from the list of available models with the model name passed as the query parameter| Not Required | 1. Local Machine: http://localhost:port#/models?model=bert-tiny <br><br> 2. Cloud API: Local Machine: https://<api_url>:port#/models?model=bert-tiny |
+### Ask a Question
+![image](https://user-images.githubusercontent.com/69768815/120728569-40c47280-c4ab-11eb-941d-9682314ad775.png)
 
-*Sample Output*
-  ```
-  [
-{
-"name": "distilled-bert",
-"tokenizer": "distilbert-base-uncased-distilled-squad",
-"model": "distilbert-base-uncased-distilled-squad"
-},
-{
-"name": "deepset-roberta",
-"tokenizer": "deepset/roberta-base-squad2",
-"model": "deepset/roberta-base-squad2"
-}
-]
-```
-### Answers Path
-We are listing the available methods for all the answer based handlers
+### List Recently Answered Questions
+![image](https://user-images.githubusercontent.com/69768815/120728636-5cc81400-c4ab-11eb-9ce8-a96e8e40dbb9.png)
 
-| S.No.     |Allowed Methods        | Path | Description | Request Body   |Example API Call   | Comments|
-|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-|1.  | POST | /answer?model=<model_name> | Answer the question using the context provided as part of the request body and the model passed as query parameter of the API call | See Below | 1. Local Machine: http://localhost:port#/answer?model=distilled-bert <br><br> 2. Cloud API: Local Machine: https://<api_url>:port#/answer?model=distilled-bert | ?model=<model_name> is an optional parameter and if not provided, default model would be used to answer the question. Default Model is - **Distilled Bert**
+### Upload Question File for Answering
+![image](https://user-images.githubusercontent.com/69768815/120728681-70737a80-c4ab-11eb-8284-bdca1f255dbe.png)
 
-*Sample API Call*
-```
-http://0.0.0.0:8080/answer?model=deepset-roberta
-```
-*Request Body*
- ```
- {
-    "question":"what is the widest highway in north america",
-    "context":"King's Highway 401, commonly referred to as Highway 401 and also known by its official name as the Macdonald–Cartier Freeway or colloquially as the four-oh-one,[3] is a controlled-access400-series highway in the Canadian province of Ontario. It stretches 828.0 kilometres (514.5 mi) from Windsor in the west to the Ontario–Quebec border in the east. The part of Highway 401 that passes through Toronto is North America's busiest highway,[4][5] and one of the widest.[6][7] Together with Quebec Autoroute 20, it forms the road transportation backbone of the Quebec City–Windsor Corridor, along which over half of Canada's population resides and is also a Core Route in the National Highway System of Canada. The route is maintained by the Ministry of Transportation of Ontario (MTO) and patrolled by the Ontario Provincial Police. The speed limit is 100 km/h (62 mph) throughout its length, unless posted otherwise."
-}
- ```
 
-*Sample Output*
-```
-{
-    "timestamp": 1622129035,
-    "model": "deepset-roberta",
-    "answer": "Highway 401",
-    "question": "what is the widest highway in north america",
-    "context": "King's Highway 401, commonly referred to as Highway 401 and also known by its official name as the Macdonald–Cartier Freeway or colloquially as the four-oh-one,[3] is a controlled-access400-series highway in the Canadian province of Ontario. It stretches 828.0 kilometres (514.5 mi) from Windsor in the west to the Ontario–Quebec border in the east. The part of Highway 401 that passes through Toronto is North America's busiest highway,[4][5] and one of the widest.[6][7] Together with Quebec Autoroute 20, it forms the road transportation backbone of the Quebec City–Windsor Corridor, along which over half of Canada's population resides and is also a Core Route in the National Highway System of Canada. The route is maintained by the Ministry of Transportation of Ontario (MTO) and patrolled by the Ontario Provincial Police. The speed limit is 100 km/h (62 mph) throughout its length, unless posted otherwise."
-}
-```
-
-| S.No.     |Allowed Methods        | Path | Description | Request Body   |Example API Call   | Comments|
-|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
-|2.  | GET | /answer?model=<model_name>&start=<start_timestamp>&end=<end_timestamp> | List the recently answered questions fetching records answered between start and end timestamp for model passed as query parameter of the API call | Not Required | 1. Local Machine: http://localhost:port#/answer?model=distilled-bert&start=1671890210&end=1689190210 <br><br> 2. Cloud API: Local Machine: https://<api_url>:port#/answer?model=distilled-bert&start=1671890210&end=1689190210 | ?model=<model_name> is an optional parameter and if not provided, answers for all models answered between start and end timestamp would be retrieved.
-
-*Sample API Call*
-```
-http://0.0.0.0:8080/answer?model=deepset-roberta&start=1571890210&end=1689190210
-or
-http://0.0.0.0:8080/start=1571890210&end=1689190210
-
-```
-*Sample Output*
-```
-[
-    {
-        "timestamp": 1621995854,
-        "model": "deepset-roberta",
-        "answer": "Nick Cannon Show",
-        "question": "who is the announcer on americas got talent",
-        "context": "Nicholas Scott Nick Cannon (born October 8, 1980)[1] is an American rapper, actor, comedian, director, screenwriter, film producer, entrepreneur, record producer, radio and television personality. On television, Cannon began as a teenager on All That before going on to host The Nick Cannon Show, Wild 'N Out, and America's Got Talent. He acted in the films Drumline, Love Don't Cost a Thing, and Roll Bounce. As a rapper he released his debut self-titled album in 2003 with the hit single Gigolo, a collaboration with singer R. Kelly. In 2007 he played the role of the fictional footballer TJ Harper in the film Goal II: Living the Dream. In 2006, Cannon recorded the singles Dime Piece and My Wife for the planned album Stages, which was never released. Cannon married American R&B/pop singer, Mariah Carey in 2008. He filed for divorce in December 2014, after six years of marriage. The divorce was finalized in 2016."
-    },
-    {
-        "timestamp": 1621996168,
-        "model": "deepset-roberta",
-        "answer": "Highway 401",
-        "question": "what is the widest highway in north america",
-        "context": "King's Highway 401, commonly referred to as Highway 401 and also known by its official name as the Macdonald–Cartier Freeway or colloquially as the four-oh-one,[3] is a controlled-access400-series highway in the Canadian province of Ontario. It stretches 828.0 kilometres (514.5 mi) from Windsor in the west to the Ontario–Quebec border in the east. The part of Highway 401 that passes through Toronto is North America's busiest highway,[4][5] and one of the widest.[6][7] Together with Quebec Autoroute 20, it forms the road transportation backbone of the Quebec City–Windsor Corridor, along which over half of Canada's population resides and is also a Core Route in the National Highway System of Canada. The route is maintained by the Ministry of Transportation of Ontario (MTO) and patrolled by the Ontario Provincial Police. The speed limit is 100 km/h (62 mph) throughout its length, unless posted otherwise."
- }
-]
-```
-or
-```
-[
-    {
-        "timestamp": 1621995854,
-        "model": "deepset-roberta",
-        "answer": "Nick Cannon Show",
-        "question": "who is the announcer on americas got talent",
-        "context": "Nicholas Scott Nick Cannon (born October 8, 1980)[1] is an American rapper, actor, comedian, director, screenwriter, film producer, entrepreneur, record producer, radio and television personality. On television, Cannon began as a teenager on All That before going on to host The Nick Cannon Show, Wild 'N Out, and America's Got Talent. He acted in the films Drumline, Love Don't Cost a Thing, and Roll Bounce. As a rapper he released his debut self-titled album in 2003 with the hit single Gigolo, a collaboration with singer R. Kelly. In 2007 he played the role of the fictional footballer TJ Harper in the film Goal II: Living the Dream. In 2006, Cannon recorded the singles Dime Piece and My Wife for the planned album Stages, which was never released. Cannon married American R&B/pop singer, Mariah Carey in 2008. He filed for divorce in December 2014, after six years of marriage. The divorce was finalized in 2016."
-    },
-    {
-        "timestamp": 1621995996,
-        "model": "distilled-bert",
-        "answer": "Cold Mountain Penitentiary",
-        "question": "what was the prison called in the green mile",
-        "context": "In 1935, Paul supervises officers Brutus Howell, Dean Stanton, Harry Terwilliger, and Percy Wetmore at Cold Mountain Penitentiary. Paul is suffering from a severe bladder infection and receives John Coffey, a physically imposing but mentally challenged black man, into his custody. John had been sentenced to death after being convicted of raping and murdering two white girls. One of the other inmates is a Native-American named Arlen Bitterbuck, who is charged with murder and is the first to be executed. Percy demonstrates a severe sadistic streak, but, as the nephew of Louisiana's First Lady, he is beyond reproach. He is particularly abusive with inmate Eduard Delacroix; he breaks Del's fingers with his baton, steps on a pet mouse named Mr. Jingles, which Del had adopted, repeatedly calls him by a gay slur, and ultimately sabotages his execution by failing to soak the sponge used to conduct electricity to Del's head; Del dies screaming in pain."
-    },
-    {
-        "timestamp": 1621996168,
-        "model": "deepset-roberta",
-        "answer": "Highway 401",
-        "question": "what is the widest highway in north america",
-        "context": "King's Highway 401, commonly referred to as Highway 401 and also known by its official name as the Macdonald–Cartier Freeway or colloquially as the four-oh-one,[3] is a controlled-access400-series highway in the Canadian province of Ontario. It stretches 828.0 kilometres (514.5 mi) from Windsor in the west to the Ontario–Quebec border in the east. The part of Highway 401 that passes through Toronto is North America's busiest highway,[4][5] and one of the widest.[6][7] Together with Quebec Autoroute 20, it forms the road transportation backbone of the Quebec City–Windsor Corridor, along which over half of Canada's population resides and is also a Core Route in the National Highway System of Canada. The route is maintained by the Ministry of Transportation of Ontario (MTO) and patrolled by the Ontario Provincial Police. The speed limit is 100 km/h (62 mph) throughout its length, unless posted otherwise."
-    }
- ]
-```
-
-## Build
-There are two ways to deploy the API on your local machine:
-<li> <b> Deployment with Flask: </b></li>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. To deploy the app on your local machine through flask, we just need to run the python file
+## Build and Deploy Web App Locally
+There are two ways to deploy the Web App on your local machine:
+<li> <b> Deployment with Streamlit: </b></li>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. To deploy the app on your local machine through Streamlit, we just need to run the python file
 
 ``` 
->>> python question_answer.py 
+>>> streamlit run webapp.py 
 ```
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. This will deploy your app on your local machine. Post successful deployment of the code
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. This will deploy your webapp on your local machine. Post successful deployment of the code
 ```
- * Serving Flask app 'question_answer' (lazy loading)
- * Environment: production
-   WARNING: This is a development server. Do not use it in a production deployment.
-   Use a production WSGI server instead.
- * Debug mode: off
- * Running on all addresses.
-   WARNING: This is a development server. Do not use it in a production deployment.
- * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
-```
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. You can access the API through sending requests through Postman. (Download Postman from here - [Link](https://www.postman.com/downloads/))
-*Sample Call*
-```
-GET http://0.0.0.0:8080/models
-```
-*Sample Screen*
-![image](https://user-images.githubusercontent.com/69768815/119890464-df7a2d80-bf05-11eb-8066-9a0d1f9a6b52.png)
+  You can now view your Streamlit app in your browser.
 
-<li> <b> Container Deployment through Docker: </b> </li>
+  Local URL: http://localhost:8501
+  Network URL: http://10.0.0.244:8501
+
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. You can access the web app through chrome, edge or any web browser and start sending requests to the REST API through the portal.
+
+<li> <b> Deployment through Docker: </b> </li>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. To deploy the app on your local machine through docker, we need a docker file ,given we already have the application file created, that would be the recipe for docker to build the application
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. In the dockerfile, we will add the required dependency of tensorflow and pytorch to run the transformers model.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. Once the dockerfile is created, we add the dependencies to be installed in the docker image in the requirements.txt
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. After you add the dependencies in requirements.txt; you'll run it when the docker container would be published and deployed
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. We'll copy the application in the app folder and run the application once the docker image was deployed
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. In the dockerfile, we will add the required dependency of python:3.7-slim
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. Once the dockerfile is created, we'll execute the deployment of the docker container which would be published and deployed
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. We'll copy the webapp.py in the app folder and the application would run once the docker image was deployed
 
-*Sample Requirements.txt*
-```
-flask == 2.0.1
-transformers == 4.6.1
-```
 *Sample Dockerfile*
 ````
-FROM tensorflow/tensorflow
+FROM python:3.7-slim
 
-ADD requirements.txt .
+EXPOSE 8080
+ENV APP_HOME /app
+WORKDIR $APP_HOME
+COPY . ./
 
-RUN pip install -r requirements.txt
+RUN pip install requests streamlit
 
-COPY <aap-name>.py /app/<aap-name>.py
-
-CMD ['python','/app/<aap-name>.py']
-
+CMD ["streamlit", "run", "--server.port", "8080", "--server.enableCORS", "false", "webapp.py"]
 ````
 *Building the Docker Image in the Active Directory/Folder*
 ```
@@ -273,5 +119,5 @@ sudo docker build -t <image-name> .
 
 *Running the Docker Image - with ports defined for communication between local machine and docker image* 
 ```
-sudo docker run -it -p 8080:8080 <image-name> /app/<aap-name>.py
+sudo docker run -it -p 8501:8501 <image-name> /app/<aap-name>.py
 ```
