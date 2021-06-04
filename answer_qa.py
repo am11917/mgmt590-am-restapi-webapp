@@ -6,11 +6,13 @@ import pandas as pd
 
 def write(state):
  
+    model_get_url = format(os.environ.get('API_URL'))
+    model_get_url = model_get_url+'models'
     url = format(os.environ.get('API_URL'))
-    url = url+'models'
+    url = url+'answer'
     headers={}
     payload={}
-    response = requests.request("GET", url, headers=headers, data=payload)
+    response = requests.request("GET", model_get_url, headers=headers, data=payload)
     data = json.loads(response.text)
     output_pd = pd.DataFrame(data)
     model = st.selectbox("Select Model", options = output_pd['name'])
