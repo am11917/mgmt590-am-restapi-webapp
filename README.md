@@ -51,6 +51,7 @@ To run this web application, you'll need the following pre-requisites installed 
 | Streamlit | 0.82.0 | `pip install streamlit`|
 | Docker Engine | NA | <a href="https://docs.docker.com/engine/"> Docker </a>|
 
+#*Note - File Upload functionality runs only for csv file type*#
 
 ## Functionality of the Web App
 There are multiple methods/paths available that provide functionalities to list, add or delete transformers models. Request an answer to the questions
@@ -73,7 +74,10 @@ using the model and listing recently answered questions.
 ![image](https://user-images.githubusercontent.com/69768815/120733862-eb419300-c4b5-11eb-9a1f-39d4f95cff9a.png)
 
 ### Upload Question File for Answering
+Screenshot Post Answering All Questions in CSV
 ![image](https://user-images.githubusercontent.com/69768815/120733894-f85e8200-c4b5-11eb-8695-5d21dc621b2d.png)
+Screenshot of CSV
+![image](https://user-images.githubusercontent.com/69768815/120738150-580c5b80-c4bd-11eb-9670-b8736193eced.png)
 
 
 ## Build and Deploy Web App Locally
