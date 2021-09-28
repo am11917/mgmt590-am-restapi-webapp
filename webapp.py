@@ -29,7 +29,7 @@ PAGES = {
     "Upload a File with Question & Context":qa_file_uploader
 }
 
-st.title("MGMT 590 - Mr. Maheshwari's Oracle")
+st.title("AM Transformers QA - Oracle")
 
 def main():
     state = ss._get_state()
