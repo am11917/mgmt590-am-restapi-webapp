@@ -58,7 +58,7 @@ There are multiple methods/paths available that provide functionalities to list,
 using the model and listing recently answered questions.
 
 ### Home
-![image](https://user-images.githubusercontent.com/69768815/120730695-0dd0ad80-c4b0-11eb-9a9f-6571de900f41.png)
+![image](https://user-images.githubusercontent.com/69768815/135173628-1402d068-7b60-425c-a20e-5299dc549a89.png)
 
 ### List Models
 ![image](https://user-images.githubusercontent.com/69768815/120730712-14f7bb80-c4b0-11eb-90ce-8b47a9ff2f46.png)
