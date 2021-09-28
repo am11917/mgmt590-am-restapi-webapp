@@ -61,22 +61,23 @@ using the model and listing recently answered questions.
 ![image](https://user-images.githubusercontent.com/69768815/135173628-1402d068-7b60-425c-a20e-5299dc549a89.png)
 
 ### List Models
-![image](https://user-images.githubusercontent.com/69768815/120730712-14f7bb80-c4b0-11eb-90ce-8b47a9ff2f46.png)
+![image](https://user-images.githubusercontent.com/69768815/135173682-83617520-e70f-4224-93f9-da8c628da53c.png)
 
 ### Add or Delete Models
-![image](https://user-images.githubusercontent.com/69768815/120733606-884ffc00-c4b5-11eb-857f-f0dc7fe5b0f0.png)
-![image](https://user-images.githubusercontent.com/69768815/120733651-943bbe00-c4b5-11eb-9b57-9cc1a996e3ce.png)
+![image](https://user-images.githubusercontent.com/69768815/135174049-2dc8dfcb-90eb-4ec7-9f9e-98c16963c2e9.png)
+![image](https://user-images.githubusercontent.com/69768815/135173983-061de659-964f-4661-b492-4003efbedbeb.png)
 
 ### Ask a Question
-![image](https://user-images.githubusercontent.com/69768815/120733793-cbaa6a80-c4b5-11eb-8fa1-04a4afd4ed6a.png)
+![image](https://user-images.githubusercontent.com/69768815/135174128-064fab54-8f74-481f-b5b9-dbe37526a000.png)
 
 ### List Recently Answered Questions
-![image](https://user-images.githubusercontent.com/69768815/120733862-eb419300-c4b5-11eb-9a1f-39d4f95cff9a.png)
+![image](https://user-images.githubusercontent.com/69768815/135174212-73cdec48-72c4-454a-ab31-5d2f3a5e8a78.png)
 
 ### Upload Question File for Answering
 Screenshot Post Answering All Questions in CSV
-![image](https://user-images.githubusercontent.com/69768815/120733894-f85e8200-c4b5-11eb-8695-5d21dc621b2d.png)
+![image](https://user-images.githubusercontent.com/69768815/135174371-a92aa51f-380f-4592-a80b-337105b366db.png)
 Screenshot of CSV
+
 ![image](https://user-images.githubusercontent.com/69768815/120738150-580c5b80-c4bd-11eb-9670-b8736193eced.png)
 
 
